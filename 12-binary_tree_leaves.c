@@ -5,21 +5,21 @@
 * Return: NULL if not leaf
 */
 size_t binary_tree_leaves(const binary_tree_t *tree)
-{   
-    size_t leaves_der, leaves_iz = 0;
+{
+	size_t leaves_der, leaves_iz = 0;
 
-    if (!tree)
-    {
-        return (0);
-    }
-    
-    if (tree->rigth == NULL && tree->left == NULL)
-    {  
-    return (1);
-    }
+	if (!tree)
+	{
+		return (0);
+	}
 
-    leaves_iz = binary_tree_leaves(tree->left);
-    leaves_der = binary_tree_leaves(tree->rigth);
+	if (tree->right == NULL && tree->left == NULL)
+	{
+	return (1);
+	}
 
-    return (leaves_der + leaves_iz);
+	leaves_iz = binary_tree_leaves(tree->left);
+	leaves_der = binary_tree_leaves(tree->right);
+
+	return (leaves_der + leaves_iz);
 }
